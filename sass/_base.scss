@@ -1,0 +1,90 @@
+
+//CSS Variables
+:root {
+    --colorPrimary: #eb2f64;
+    --colorPrimaryLight: #FF3366;
+    --colorPrimaryDark: #BA265D;
+
+    --colorGreyLight1: #faf9f9;
+    --colorGreyLight2: #f4f2f2;
+    --colorGreyLight3: #f0eeee;
+    --colorGreyLight4: #ccc;
+
+    --colorGreyDark1: #333;
+    --colorGreyDark2: #777;
+    --colorGreyDark3: #999;
+
+    --shadowLight : 0 2rem 5rem rgba(0,0,0,0.06);
+    --shadowDark : 0 2rem 6rem rgba(0,0,0,0.3);
+
+    --borderLine : 1px solid var(--colorGreyLight2);    
+}
+
+// SASS Variables
+
+$bpLargest : 75em; // 1200px
+$bgLarger :  68.75em;//1100px
+
+//Mixins
+
+@mixin maxMQ ($arg...) {
+    @if length($arg) == 1 {
+        @media screen and (max-width : nth($arg,1)){
+            @content;
+        }
+    }
+
+    @if length($arg) == 2 {
+        @media screen and (max-width : nth($arg,1)) and (max-height : nth($arg,2)){
+            @content;
+        }
+    }
+}
+
+@mixin minMQ ($arg...) {
+    @if length($arg) == 1 {
+        @media screen and (min-width : nth($arg,1)){
+            @content;
+        }
+    }
+
+    @if length($arg) == 2 {
+        @media screen and (min-width : nth($arg,1)) and (min-height : nth($arg,2)){
+            @content;
+        }
+    }
+}
+
+
+
+* 
+{
+    margin: 0;
+    padding : 0;
+}
+
+*,*::after,*::before
+{
+    box-sizing: inherit;
+}
+
+html 
+{
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px
+
+    @include maxMQ(71.85em)
+    {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: 'Open Sans',sans-serif;
+    font-weight : 400;
+    line-height: 1.6;
+    background: linear-gradient(to right bottom, var(--colorPrimaryLight), var(--colorPrimaryDark));
+    color: var(--colorGreyDark2);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}

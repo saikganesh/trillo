@@ -1,0 +1,130 @@
+.container
+{
+    background-color: var(--colorGreyLight2);
+    max-width: 120rem;
+    min-height: 60rem;
+    box-shadow: 0 2rem 6rem rgba($color: #000000, $alpha: 0.3);
+    margin: 8rem auto;
+
+    @include maxMQ($bpLargest)
+    {
+        margin: 0;
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+.header
+{
+    height: 7rem;
+    background-color: #fff;
+    font-size: 1.4rem;
+    border-bottom: var(--borderLine);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include maxMQ(31.25em)
+    {
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 12rem;
+    }
+
+}
+
+.content
+{
+    display: flex;
+
+    @include maxMQ(56.25em)
+    {
+        flex-direction: column;
+    }
+}
+
+.sideBar
+{
+    flex: 0 0 20%;
+    background-color: var(--colorGreyDark1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotelView
+{
+    flex: 1 ;
+    background-color: var(--colorGreyLight1);
+
+}
+
+.hotelDetails
+{
+    display: flex;
+    padding: 3.5rem;
+    border-bottom: var(--bottomLine);
+
+    @include maxMQ(56.25em)
+    {
+        padding: 2rem;
+    }
+
+    @include maxMQ(37.5em)
+    {
+        flex-direction: column;
+    }
+}
+
+.hotelDescription
+{
+    flex: 0 0 60%;
+    margin-right: 3.5rem;
+    padding: 2rem;
+    box-shadow: var(--shadowLight);
+    font-size: 1.4rem;
+
+    @include maxMQ(56.25em)
+    {
+        margin-right: 2rem;
+    }
+
+    @include maxMQ(56.25em)
+    {
+        margin-right: 0rem;
+    }
+}
+
+.hotelReviews
+{
+    flex: 1 0;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include maxMQ(56.25em)
+    {
+        padding: 5rem;
+    }
+}
+
+.showMoreButton
+{
+    margin: 0 auto;
+    font-size: 1.3rem;
+}
+
+.hotelBooking
+{
+    text-align: center;
+    padding : 3.5rem ;
+
+    @include maxMQ(56.25em)
+    {
+        padding: 2rem;
+    }
+}

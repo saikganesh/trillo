@@ -1,0 +1,681 @@
+//Main Logo
+
+.logo
+{
+    height: 4rem;
+    margin-left: 2rem;
+}
+
+
+//Search Bar
+
+.search
+{
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include maxMQ(31.25em)
+    {
+        flex: 0 0 90%;
+        order: 1;
+    }
+
+    &Input
+    {
+        font-family: inherit;
+        font-size: inherit;
+        background-color: var(--colorGreyLight2);
+        border-radius: 100px;
+        color: inherit;
+        padding : .7rem .7rem;
+        border: none;
+        width: 90%;
+        margin-right: -3.25rem;
+        transition: width 0.2s;
+
+        &:focus
+        {
+            width: 100%;
+            outline: none;
+        }
+
+        &::-webkit-input-placeholder
+        {
+            font-weight: 100;
+            color: var(--colorGreyLight4);
+        }
+    }
+
+    &Button
+    {
+        background-color: var(--colorGreyLight2);
+        border: none;
+
+        &:focus
+        {
+            outline: none;
+        }
+
+        &:active
+        {
+            transform: translateY(2px);
+        }
+    }
+
+    &Icon
+    {
+        width: 2rem;
+        height: 2rem;
+        fill: var(--colorGreyDark3);
+
+        &:hover
+        {
+            fill: var(black);
+        }
+
+    }
+}
+
+//User Navigation
+
+.userNav
+{
+
+    display: flex;
+    align-self: stretch;
+
+    & > * 
+    {
+        padding : 0 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    & > *:hover
+    {
+        background-color: var(--colorGreyLight2);
+    }
+
+    &IconBox
+    {
+        position: relative;
+    }
+
+    &Icon
+    {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--colorGreyDark2);
+    }
+
+    &Notification
+    {
+        background-color: var(--colorPrimary);
+        border-radius: 50%;
+        font-size: 1rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+    }
+
+    &User
+    {
+
+        &Photo
+        {
+            width: 3.75rem;
+            border-radius: 50%;
+        }
+
+        &Name
+        {
+            display: inline-block;
+            margin-left: 1rem;
+        }
+    
+    }
+
+}
+
+//Side Navigation
+
+.sideBar
+{
+
+    &Nav
+    {
+        list-style: none;
+        font-size: 1.6rem;
+
+        @include maxMQ(56.25em)
+        {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        &Item
+        {
+            padding : 1.5rem 3rem;
+            position: relative;
+
+
+            @include maxMQ(56.25em)
+            {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                font-size: 1.1rem;
+            }
+
+            @include maxMQ(56.25em)
+            {
+                padding: 1rem 2rem;
+            }
+
+            &::before
+            {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 3px;
+                background-color: var(--colorPrimary);
+                transform: scaleY(0);
+                transition: transform 0.2s , width 0.4s 0.2s cubic-bezier(1,0,0,1), background-color 0.1s;
+            }
+
+            &:hover::before,&Active::before
+            {
+                transform: scaleY(1);
+                width: 100%;
+            }
+
+            &:active::before 
+            {
+                background-color: var(--colorPrimaryLight);
+            }
+        }
+
+        &Link,&Link:visited,&Link:active
+        {
+            text-decoration: none;
+            color: var(--colorGreyLight1);
+            text-transform: uppercase;
+            
+            display: flex;
+            align-items: center;
+            margin: 1rem;
+
+            position: relative;
+            z-index: 10;
+
+            @include maxMQ(56.25em)
+            {
+                flex-direction: column;
+            }
+        }
+
+
+        &Icon
+        {
+            height: 1.75rem;
+            width: 1.75rem;
+            fill: currentColor;
+            margin-right: 2rem;
+
+            @include maxMQ(56.25em)
+            {
+                margin-right: 0rem;
+                margin-bottom: 0.7rem;
+            }
+
+        }
+    }
+
+    &Text
+    {
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+
+        @include maxMQ(56.25em)
+        {
+            display: none;
+        }
+    }
+    
+}
+
+//Hotel Gallery
+
+.imageGallery
+{
+    display: flex;
+
+    .hotelImage
+    {
+        display: block;
+        width: 100%;
+    }
+}
+
+//Hotel Overview
+
+.hotelOverview
+{
+    display: flex;
+    border-bottom: 1px solid var(--colorGreyLight2);
+
+    .hotelName
+    {   
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 300;
+        padding: 1.5rem 3rem;
+        display: flex;
+        align-items: center;
+
+        @include maxMQ(56.25em)
+        {
+            font-size: 1.5rem;
+        }
+    }
+
+    .hotelRatings
+    {
+        display: flex;
+        margin-right: auto;
+    }
+
+    .hotelRating
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .ratingIcon,.locationIcon
+    {
+        width : 1.75rem;
+        height: 1.75rem;
+        fill: var(--colorPrimary);
+    }
+
+
+    .hotelLocation
+    {
+        display: flex;
+        align-items: center;
+
+        &Icon
+        {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        &Name
+        {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+    }
+
+    .hotelVotes
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        background-color: var(--colorPrimary);
+        color: white;
+        
+        &Average
+        {
+            font-size: 1.6rem;
+
+            @include maxMQ(56.25em)
+            {
+                font-size: 1.4rem;
+            }
+        }
+
+        &Count
+        {
+            font-size: 1rem;
+            font-weight: 300;
+
+            @include maxMQ(56.25em)
+            {
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+
+}
+
+
+//Inline Button
+
+.buttonInline
+{
+    background: transparent;
+    border: none;
+    color: var(--colorPrimary);
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s;
+
+    & span
+    {
+        margin-left: 3px;
+        transition: margin-left 0.2s;
+    }
+
+    &:hover
+    {
+        color : var(--colorGreyDark1);
+
+        span
+        {
+            margin-left: 8px;
+        }
+    }
+
+    &:focus
+    {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+}
+
+
+@keyframes pulsate
+{
+    0%
+    {
+        transform: scale(1);
+        box-shadow: none;
+        color: var(--colorPrimary);
+    }
+
+    50%
+    {
+        transform: scale(1.1);
+        box-shadow: 0rem 2rem 4rem rgba($color: #000000, $alpha: 0.1);
+        color : var(--colorGreyDark1);
+    }
+
+    100%
+    {
+        transform: scale(1);
+        box-shadow: none;
+        color: var(--colorPrimary);
+    }
+}
+
+
+//Paragraph
+
+.hotelInfo
+{
+
+}
+
+.hotelInfo:not(:last-of-type)
+{
+    margin-bottom: 2rem;
+}
+
+//Hotel facilities
+
+.hotelFacilities
+{
+    list-style-type: none;
+    padding : 3rem;
+    margin : 3rem 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border-top : var(--borderLine);
+    border-bottom : var(--borderLine);
+
+}
+
+.hotelItem
+{
+    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+
+    &::before
+    {
+        content: '';
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.7rem;
+
+        //For older browsers
+        background-image: url('../img/chevron-thin-right.svg');
+        background-size: cover;
+
+        //For new browsers
+        @supports (-webkit-mask-image: url()) or (mask-image: url())
+        {
+            background-color: var(--colorPrimary);
+            -webkit-mask-image: url('../img/chevron-thin-right.svg');
+            mask-image: url('../img/chevron-thin-right.svg');
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            background-image: none;
+        }
+    }
+}
+
+//Hotel Recomendation
+
+.hotelRecomendations
+{
+    padding: 1.5rem;
+    display: flex;
+}
+
+.recomendText
+{
+    color : var(--colorGreyDark2) ;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    //margin-right: auto;
+    flex: 1;
+}
+
+.recomendPeople
+{
+    display: flex;
+    align-items: center;
+
+    &Photo
+    {
+        box-sizing: content-box;
+        display: block;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        margin-right: -1.5rem;
+
+        @include maxMQ(56.25em)
+        {
+            display: flex;
+            margin-right: -2rem;
+        }
+    }
+}
+
+//Review Box
+
+.hotelReview
+{
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadowLight);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+
+    @include maxMQ(56.25em)
+    {
+        margin-bottom: 2rem;
+    }
+
+    .reviewText
+    {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 20;
+    }
+
+
+    .userImage
+    {
+        display: block;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+    }
+
+    .reviewUser
+    {
+        display: flex;
+
+        &Box
+        {
+            display: flex;
+            flex-direction: column;
+            flex : 1;
+            justify-content: center;
+            margin-left: 1rem;
+        }
+
+        &Name
+        {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        &Date
+        {
+            margin-top: 0.4rem;
+        }
+    }
+
+    .reviewRating
+    {
+        font-size: 2rem;
+        color: var(--colorPrimary);
+    }
+
+    &::before
+    {
+        content: '\201C';
+        position: absolute;
+        top: -2.5rem;
+        left: -1rem;
+        line-height: 1;
+        color: var(--colorGreyLight3);
+        font-size: 20rem;
+        z-index: 10;
+        font-family: sans-serif;
+    }
+
+}
+
+//H2 header 
+
+.hotelBookingHeader
+{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+//Booking button
+
+.hotelBookingButton
+{
+    border: none;
+    background: linear-gradient(to right bottom , var(--colorPrimaryLight),var(--colorPrimaryDark));
+    font-size: 1.5rem;
+    border-radius: 100px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+
+    & > *
+    {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition : all 0.2s
+    }
+
+    .textVisible
+    {
+        padding: 2rem 7.5rem;
+    }
+
+    .textInvisible
+    {
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem;
+    }
+
+    &:hover
+    {
+        background: linear-gradient(to left , var(--colorPrimaryLight),var(--colorPrimaryDark));
+    }
+
+    &:focus
+    {
+        outline: none;
+        animation: pulsate 1s infinite;
+    }
+
+    &:hover .textVisible
+    {
+        transform: translateY(100%);
+    }
+
+    &:hover .textInvisible
+    {
+        top : 0;
+    }
+}
